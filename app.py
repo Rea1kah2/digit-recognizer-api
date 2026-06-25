@@ -12,10 +12,7 @@ import re
 
 # Inisialisasi Flask app
 app = Flask(__name__)
-CORS(app, origins=[
-    "https://localhost:5173",
-    "https://digit-recognizer-web-teal.vercel.app",
-])
+CORS(app)  # Enable CORS untuk semua route
 
 @app.route('/health')
 def health():
