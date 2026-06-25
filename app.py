@@ -14,7 +14,7 @@ import re
 app = Flask(__name__)
 CORS(app, origins=[
     "https://localhost:5173",
-    "https://digit-recognizer-web-teal.vercel.app/"
+    "https://digit-recognizer-web-teal.vercel.app",
 ])
 
 @app.route('/health')
