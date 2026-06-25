@@ -18,8 +18,6 @@ CORS(app)  # Enable CORS for all routes
 def health():
     return jsonify({'status': 'ok', 'message': 'Flask API is running!'})
 
-
-
 # Load Model
 model = tf.keras.models.load_model('model/mnist_model.h5') # Model akan diload sekali saja, karena kalau berulang kali maka server akan lambat. Jadi kita load model di awal saja.
 print("Model berhasil dimuat!")
@@ -90,7 +88,9 @@ def predict():
 
 # Jalankan server
 if __name__ == '__main__':
-    print("\nServer berjalan di http://localhost:5000")
-    app.run(debug=True, port=5000)
+    import os
+    port = int(os.environ.get('PORT', 5000))
+    print(f"\nServer berjalan di http://localhost:{port}")
+    app.run(debug=True, port=port)
 
 
