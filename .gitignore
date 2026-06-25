@@ -1,0 +1,15 @@
+# Virtual environment
+venv/
+__pycache__/
+*.pyc
+
+# Model file (besar, akan di-generate ulang via train.py)
+# Catatan: kita SIMPAN model di repo karena training butuh 2 jam
+# Jadi baris di bawah ini SENGAJA tidak diaktifkan
+# model/mnist_model.h5
+
+# OS files
+.DS_Store
+
+# Environment variables
+.env

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digit Recognizer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}" />
+</head>
+<body>
+    <div class="app-wrapper">
+        <header class="header">
+            <div class="header-badge">ML Project</div>
+            <h1 class="header-title">Digit Recognizer</h1>
+            <p class="header-subtitle">Gambar angka 0–9 di kanvas, lalu tekan <strong>Prediksi</strong></p>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-grid">
+            <!-- Kolom kiri -->
+             <section class="card canvas-card">
+                <div class="card-label">Kanvas Gambar</div>
+
+                <div class="canvas-wrapper">
+                    <canvas id="drawCanvas" width="280" height="280"></canvas>
+                    <div class="canvas-hint" id="canvasHint">Mulai Gambar disini!</div>
+                </div>
+
+                <div class="canvas-actions">
+                    <button class="btn btn-secondary" id="clearBtn">Hapus</button>
+                    <button class="btn btn-primary" id="predictBtn">Prediksi</button>
+                </div>
+             </section>
+
+             <!-- Kolom kanan -->
+              <section class="card result-card">
+                <div class="card-label">Hasil Prediksi</div>
+
+                <!-- State -> idle -->
+                 <div class="result-idle" id="resultIdle">
+                    <p>Gambar angka terlebih dahulu,<br/>lalu tekan <strong>Prediksi</strong></p>
+                 </div>
+
+                <!-- State -> Loading -->
+                 <div class="result-loading hidden" id="resultLoading">
+                    <div class="spinner"></div>
+                    <p>Memprediksi...</p>
+                 </div>
+
+                 <!-- State -> Result -->
+                  <div class="result-output hidden" id="resultOutput">
+                    <div class="predicted-digit" id="predictedDigit">-</div>
+                    <div class="confidence-badge" id="confidenceBadge">0%</div>
+                    <p class="confidence-label">Tingkat Keyakinan</p>
+
+                    <!-- Probability Bars -->
+                     <div class="prob-section">
+                        <div class="prob-title">Distribusi Probabilitas</div>
+                        <div class="prob-bars" id="probBars"></div>
+                     </div>
+                  </div>
+
+
+              </section>
+        </main>
+
+        <!-- Footer -->
+         <footer class="footer">
+            <span>Dibangun dengan</span>
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">TensorFlow</span>
+            <span class="tech-tag">Flask</span>
+            <span class="tech-tag">CNN</span>
+         </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js')}}"></script>
+</body>
+</html>
